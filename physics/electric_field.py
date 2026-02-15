@@ -3,7 +3,6 @@ import numpy as np
 
 fig, ax = plt.subplots()
 
-
 k = 8.99e9
 e = 1.6e-19
 
@@ -14,7 +13,20 @@ class Charge:
         self.charge = charge
 
 
-charges = [Charge(np.asarray([-5, 0]), e), Charge(np.asarray([5, 0]), -e)]
+charges = []
+
+# take user inputs
+user_finished = False
+while not user_finished:
+    posx = float(input("Please enter the x position of your charge: "))
+    posy = float(input("Please enter the y position of your charge: "))
+    chargeMag = int(input("Please enter the charge of your charge in units of e: "))
+    charge = Charge([posx, posy], chargeMag * e)
+    charges.append(charge)
+
+    decision = input("Would you like to keep adding charges (y/n): ")
+    if decision == "n":
+        user_finished = True
 
 
 def CalculateFieldStrength(position):
@@ -43,7 +55,6 @@ for charge in charges:
     else:
         ax.plot(charge.position[0], charge.position[1], "bo")
 
-print(E)
 
 ax.quiver(X, Y, E[0], E[1])
 plt.show()

@@ -1,0 +1,13 @@
+{
+	"folders": [
+		{
+			"name": "PythonProjects",
+			"path": "../../../PythonProjects"
+		},
+		{
+			"name": "PhysicsLib",
+			"path": "../../../PhysicsLib"
+		}
+	],
+	"settings": {}
+}
